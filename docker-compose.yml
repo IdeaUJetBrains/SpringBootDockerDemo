@@ -1,0 +1,15 @@
+version: "2"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "18080:8080"
+    links:
+      - db
+
+  db:
+    image: opavlova/db-mysql:5.5
+    ports:
+      - "23306:3306"
