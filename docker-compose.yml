@@ -6,10 +6,14 @@ services:
       dockerfile: Dockerfile
     ports:
       - "18080:8080"
+    depends_on:
+      - db
     links:
       - db
 
+
   db:
-    image: opavlova/db-mysql:5.5
+    image: opavlova/db-mysql:5.7-test
     ports:
-      - "23306:3306"
+      - "13306:3306"
+

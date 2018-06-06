@@ -1,0 +1,1 @@
+FROM opavlova/db-mysql:5.5
