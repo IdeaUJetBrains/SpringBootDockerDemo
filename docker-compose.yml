@@ -1,4 +1,4 @@
-version: "2"
+version: "2.1"
 services:
   app:
     build:
@@ -7,13 +7,18 @@ services:
     ports:
       - "18080:8080"
     depends_on:
-      - db
-    links:
-      - db
+      db:
+        condition: service_healthy
 
 
   db:
     image: opavlova/db-mysql:5.7-test
     ports:
       - "13306:3306"
+    healthcheck:
+#          test: ["CMD", "mysql", "-u", "root", "password" ,"root", "-h", "localhost", "-P", "3306", "DOCKERDB" ]
+          test: ["CMD", "mysql" ,"-h", "localhost", "-P", "3306", "-u", "root", "password" ,"root",  "-e", "SELECT 1", "cache"]
+          interval: 1s
+          timeout: 3s
+          retries: 30
 
