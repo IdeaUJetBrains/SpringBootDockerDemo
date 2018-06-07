@@ -1,1 +1,1 @@
-FROM opavlova/db-mysql:5.5
+FROM opavlova/db-mysql:5.7-test

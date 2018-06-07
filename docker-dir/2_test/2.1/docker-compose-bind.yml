@@ -1,0 +1,8 @@
+version: "2.1"
+services:
+  web_tomcat:
+    ports:
+      - "8888:8080"
+
+
+

@@ -10,7 +10,6 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "entitybus")
-//@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entity.entity.Entitybus")
 public class Entitybus {
     private int eid;
 
@@ -18,7 +17,6 @@ public class Entitybus {
 
     @Id
     @Column(name = "EID", nullable = false)
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entity.entity.Entitybus")
     public int getEid() {
         return eid;
     }
