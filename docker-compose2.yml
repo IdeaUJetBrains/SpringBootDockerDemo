@@ -1,9 +1,0 @@
-version: "2"
-services:
-  db1:
-    image: opavlova/db-mysql:5.7-test
-    ports:
-      - "13306:3306"
-    hostname: dbhostname
-
-

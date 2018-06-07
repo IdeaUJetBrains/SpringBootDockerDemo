@@ -1,8 +1,9 @@
 version: "2"
 services:
-  db3:
+  db_temp:
     image: opavlova/db-mysql:5.7-test
+    container_name: db_temp
     ports:
-      - "13306:3306"
+      - "23306:3306"
 
 

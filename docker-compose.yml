@@ -1,4 +1,8 @@
 version: "2.1"
+networks:
+  test:
+    name: test
+
 services:
   app:
     build:
@@ -9,8 +13,12 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    networks:
+      - test
+
   db:
     image: opavlova/db-mysql:5.7-test
+    container_name: db
     ports:
       - "13306:3306"
     healthcheck:
@@ -19,4 +27,5 @@ services:
           interval: 1s
           timeout: 3s
           retries: 30
-
+    networks:
+      - test
