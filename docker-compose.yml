@@ -1,39 +1,34 @@
-#see readme.txt, (2)
-version: "2.1"
-
 #create a network and add our services into this network:
 #so, "app" service will be able to connect to the mysql database from "db" servoce by the hostname="db":
 #jdbc:mysql://db:3306/DOCKERDB
-networks:
-  test:
+version: "2.1"
+
+
+#networks:
+#  test:
 
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
-#   bind 8080 port to be able to connect to it
-    ports:
-      - "18080:8080"
-#   add the dependancy to the "db" service to run it before "app"
-#   add the healthckeck to be sure that mysql database is started in the "db" service before running "app"
-    depends_on:
-      db:
-        condition: service_healthy
-    networks:
-      - test
+#    ports:
+#      - "18080:8080"
+#    depends_on:
+#      db:
+#        condition: service_healthy
+#    networks:
+#      - test
 
   db:
     image: opavlova/db-mysql:5.7-test
     container_name: db
-#   bind 3306 port to be able to connect to it
-    ports:
-      - "13306:3306"
-#   add the healthckeck to be sure that mysql database is started
+#    ports:
+#      - "13306:3306"
     healthcheck:
           test: ["CMD", "mysql", "-h", "localhost", "-P", "3306", "-u", "root", "--password=root", "-e", "select 1", "DOCKERDB"]
           interval: 1s
           timeout: 3s
           retries: 30
-    networks:
-      - test
+#    networks:
+#      - test

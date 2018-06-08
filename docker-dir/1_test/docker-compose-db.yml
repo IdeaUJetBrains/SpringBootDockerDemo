@@ -1,7 +1,0 @@
-version: "2"
-services:
-  db_test1:
-    image: opavlova/db-mysql:5.7-test
-    ports:
-      - "23306:3306"
-

@@ -1,8 +1,0 @@
-version: "2.1"
-services:
-  app_separate:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "18080:8080"
