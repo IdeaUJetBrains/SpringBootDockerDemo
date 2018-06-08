@@ -1,0 +1,11 @@
+##see readme.txt, (1)
+version: "2"
+services:
+  db_temp:
+    image: opavlova/db-mysql:5.7-test
+    container_name: db_temp
+#   bind 3306 port to be able to connect to it
+    ports:
+      - "23306:3306"
+
+
