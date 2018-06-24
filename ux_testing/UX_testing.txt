@@ -31,12 +31,12 @@ Run the spring boot application with the database that you have set up on the pr
 This is a simple spring boot application: takes buses from the table and lists them on the page
 Description:
 -Working table in the mysql database: entitybus
--Upon executing GET request at http://localhost:<app_host_port>/entitybus a new entry is added to the entrybus table
+-Upon executing GET request at http://localhost:<app_host_port>/entitybus/post a new entry is added to the entrybus table
 
 
 STEP3:
 Build(maven) and run the application inside the container with the connection to the container mysql database.
-Check that app is working ok (for example, go to http://127.0.0.1:<app_host_port>/entitybus/post)
+Check that app is working ok (for example, go to http://127.0.0.1:<app_host_port>/entitybus)
 
 
 
